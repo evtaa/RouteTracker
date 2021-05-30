@@ -20,6 +20,10 @@
 		A843BCF7265D6A1E003A8793 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BCF6265D6A1E003A8793 /* MapView.swift */; };
 		A843BCFF265D6A3B003A8793 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BCFE265D6A3B003A8793 /* MapViewController.swift */; };
 		A843BD04265D7C5B003A8793 /* ShowAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */; };
+		A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F74B26611D6B00787C88 /* RealmService.swift */; };
+		A8B3F7512661228D00787C88 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7502661228D00787C88 /* Path.swift */; };
+		A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7552661261C00787C88 /* Coordinate.swift */; };
+		A8DEB249266399AC00BD6295 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		A843BCF6265D6A1E003A8793 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A843BCFE265D6A3B003A8793 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertProtocol.swift; sourceTree = "<group>"; };
+		A8B3F74B26611D6B00787C88 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		A8B3F7502661228D00787C88 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		A8B3F7552661261C00787C88 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
 		BBB027CFA30EE12CBDC634D3 /* Pods-RouteTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker/Pods-RouteTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BE0065C1786175E75F5E5E7A /* Pods-RouteTracker-RouteTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBF8F573A9A1F41687FD3B82 /* Pods-RouteTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-RouteTrackerTests/Pods-RouteTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 		A82A7658265D38B70038016A /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				A8B3F74A26611D4300787C88 /* Realm */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -193,6 +202,8 @@
 		A82A7659265D38CE0038016A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				A8B3F7502661228D00787C88 /* Path.swift */,
+				A8B3F7552661261C00787C88 /* Coordinate.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -262,6 +273,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		A8B3F74A26611D4300787C88 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */,
+				A8B3F74B26611D6B00787C88 /* RealmService.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +294,7 @@
 				A82A7602265D13AA0038016A /* Frameworks */,
 				A82A7603265D13AA0038016A /* Resources */,
 				6AC40E561D97B0D2BEF257A4 /* [CP] Copy Pods Resources */,
+				794D08CCBA5FA3A9F4E14DA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,6 +333,7 @@
 				A82A7626265D13AD0038016A /* Frameworks */,
 				A82A7627265D13AD0038016A /* Resources */,
 				CECAE9CA6C7926875AE4D9F7 /* [CP] Copy Pods Resources */,
+				495BC837229DDEE90BECBCCB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -392,6 +414,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		495BC837229DDEE90BECBCCB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6AC40E561D97B0D2BEF257A4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +446,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		794D08CCBA5FA3A9F4E14DA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E04B079C1FCB5E56912B8AE /* [CP] Check Pods Manifest.lock */ = {
@@ -501,10 +557,14 @@
 			files = (
 				A82A7613265D13AA0038016A /* RouteTracker.xcdatamodeld in Sources */,
 				A843BCFF265D6A3B003A8793 /* MapViewController.swift in Sources */,
+				A8B3F7512661228D00787C88 /* Path.swift in Sources */,
+				A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */,
 				A843BCF7265D6A1E003A8793 /* MapView.swift in Sources */,
+				A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */,
 				A82A7609265D13AA0038016A /* AppDelegate.swift in Sources */,
 				A82A760B265D13AA0038016A /* SceneDelegate.swift in Sources */,
 				A843BD04265D7C5B003A8793 /* ShowAlertProtocol.swift in Sources */,
+				A8DEB249266399AC00BD6295 /* RealmServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
