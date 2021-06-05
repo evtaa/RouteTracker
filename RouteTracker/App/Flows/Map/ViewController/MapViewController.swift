@@ -11,7 +11,11 @@ import GoogleMaps
 
 class MapViewController: UIViewController, ShowAlert {
     // MARK: Properties
-    private var realmService: RealmServiceProtocol
+    var onLogout: (() -> Void)?
+    
+    private var realmMapService: RealmMapServiceProtocol
+    private var user: User
+    
     private var locationManager: CLLocationManager?
     private var markers = [GMSMarker]()
     private var route: GMSPolyline?
@@ -34,8 +38,9 @@ class MapViewController: UIViewController, ShowAlert {
     }
     
     //MARK: Init
-    init(realmService: RealmServiceProtocol) {
-        self.realmService = realmService
+    init(realmMapService: RealmMapServiceProtocol, user: User) {
+        self.realmMapService = realmMapService
+        self.user = user
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
@@ -64,6 +69,8 @@ class MapViewController: UIViewController, ShowAlert {
     }
     private func configureNavigationBar() {
         title = "Tracker"
+        let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTouchUpInside))
+        navigationItem.setRightBarButton(barButtonItem, animated: true)
     }
     private func configureLocationManager() {
         locationManager = CLLocationManager()
@@ -83,9 +90,10 @@ class MapViewController: UIViewController, ShowAlert {
     }
     private func configureRoute() {
         route = GMSPolyline()
+        routePath = GMSMutablePath()
         guard let route = route else {return}
         route.strokeColor = .blue
-        route.strokeWidth = 100
+        route.strokeWidth = 5
         route.map = mapView.mapView
     }
     private func configureViewRoute() {
@@ -130,7 +138,7 @@ class MapViewController: UIViewController, ShowAlert {
         mapView.mapView.moveCamera(update)
     }
     private func setRouteFromLastPathRealm(routePath: GMSMutablePath, route: GMSPolyline) {
-        guard let path = realmService.getPathes()?.last else {return}
+        guard let path = realmMapService.getPath(username: user.username) else {return}
         routePath.removeAllCoordinates()
         route.path = routePath
         path.coordinates.forEach {
@@ -141,27 +149,32 @@ class MapViewController: UIViewController, ShowAlert {
     }
     private func updateLocation() {
         route?.map = nil
-        route = GMSPolyline()
-        routePath = GMSMutablePath()
-        route?.map = mapView.mapView
+        configureRoute()
         locationManager?.startUpdatingLocation()
     }
     
     // MARK: Actions
-    @objc private func startTrackButtonTouchUpInside () {
+    @objc private func logoutButtonTouchUpInside() {
+        UserDefaults.standard.set("", forKey: "username")
+        UserDefaults.standard.set(false, forKey: "isLogin")
+        onLogout?()
+    }
+    
+    @objc private func startTrackButtonTouchUpInside() {
         isTracker = true
         updateLocation()
     }
-    @objc private func stopTrackButtonTouchUpInside () {
-        guard let routePath = routePath else {return}
-        locationManager?.stopUpdatingLocation()
-        isTracker = false
-        realmService.deletePathes()
-        realmService.addPath(routePath: routePath)
-    }
-    @objc private func viewTrackButtonTouchUpInside () {
+    @objc private func stopTrackButtonTouchUpInside() {
         guard let routePath = routePath,
-              let route = route else {return}
+              let locationManager = locationManager else {return}
+        locationManager.stopUpdatingLocation()
+        isTracker = false
+        realmMapService.deletePath(username: user.username)
+        realmMapService.savePath(username: user.username, routePath: routePath)
+    }
+    @objc private func viewTrackButtonTouchUpInside() {
+        guard let routePath = routePath,
+              let route = route else { return}
         if (isTracker) {
             showWarning(forViewController: self, withTitleOfAlert: "Notification", andMessage: "Tracker is used. You should switch off tracker, before building route", withTitleOfFirstAction: "OK", withTitleOfSecondAction: "Cancel", handlerOfFirstAction: { [weak self] _ in
                 guard let self = self else {return}

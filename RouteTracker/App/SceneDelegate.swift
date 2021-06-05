@@ -10,17 +10,25 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: ApplicationCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let realmService = RealmService()
-        let mapViewController = MapViewController(realmService: realmService)
-        let navigationController = UINavigationController(rootViewController: mapViewController)
-        window.rootViewController = navigationController
+        let realmMapService: RealmMapServiceProtocol = realmService
+        let realmUserService: RealmUserServiceProtocol = realmService
+        let separatorFactoryAbstract: SeparatorFactoryAbstract = SeparatorFactory()
+
+        //let mapViewController = MapViewController(realmMapService: realmService)
+       // let navigationController = UINavigationController(rootViewController: mapViewController)
+        //window.rootViewController = navigationController
+        
         window.makeKeyAndVisible()
         self.window = window
+        
+        coordinator = ApplicationCoordinator(realmMapService: realmMapService, realmUserService: realmUserService, separatorFactoryAbstract: separatorFactoryAbstract)
+        coordinator?.start()
         
     }
 

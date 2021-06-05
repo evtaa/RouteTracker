@@ -20,10 +20,37 @@
 		A843BCF7265D6A1E003A8793 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BCF6265D6A1E003A8793 /* MapView.swift */; };
 		A843BCFF265D6A3B003A8793 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BCFE265D6A3B003A8793 /* MapViewController.swift */; };
 		A843BD04265D7C5B003A8793 /* ShowAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */; };
+		A89D56EA2668CE9900A1CFDC /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56E92668CE9900A1CFDC /* AuthView.swift */; };
+		A89D56EF2668CEA100A1CFDC /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56EE2668CEA100A1CFDC /* AuthViewController.swift */; };
+		A89D57042668CEC900A1CFDC /* TableScreenViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56F42668CEC900A1CFDC /* TableScreenViewDarkStyle.swift */; };
+		A89D57052668CEC900A1CFDC /* NavigationControllerDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56F62668CEC900A1CFDC /* NavigationControllerDarkStyle.swift */; };
+		A89D57062668CEC900A1CFDC /* SearchControllerDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56F72668CEC900A1CFDC /* SearchControllerDarkStyle.swift */; };
+		A89D57072668CEC900A1CFDC /* SegmentedControlDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56F92668CEC900A1CFDC /* SegmentedControlDarkStyle.swift */; };
+		A89D57082668CEC900A1CFDC /* DataUserViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FA2668CEC900A1CFDC /* DataUserViewDarkStyle.swift */; };
+		A89D57092668CEC900A1CFDC /* TextViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FB2668CEC900A1CFDC /* TextViewDarkStyle.swift */; };
+		A89D570A2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FC2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift */; };
+		A89D570B2668CEC900A1CFDC /* ScrollViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FD2668CEC900A1CFDC /* ScrollViewDarkStyle.swift */; };
+		A89D570C2668CEC900A1CFDC /* ResultViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FE2668CEC900A1CFDC /* ResultViewDarkStyle.swift */; };
+		A89D570D2668CEC900A1CFDC /* ButtonDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56FF2668CEC900A1CFDC /* ButtonDarkStyle.swift */; };
+		A89D570E2668CEC900A1CFDC /* LabelDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57002668CEC900A1CFDC /* LabelDarkStyle.swift */; };
+		A89D570F2668CEC900A1CFDC /* TableViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57012668CEC900A1CFDC /* TableViewDarkStyle.swift */; };
+		A89D57102668CEC900A1CFDC /* RefreshControlDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57022668CEC900A1CFDC /* RefreshControlDarkStyle.swift */; };
+		A89D57112668CEC900A1CFDC /* TextFieldDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57032668CEC900A1CFDC /* TextFieldDarkStyle.swift */; };
+		A89D571A2668CFB100A1CFDC /* CheckingUsernameAndPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57192668CFB100A1CFDC /* CheckingUsernameAndPassword.swift */; };
+		A89D57202668CFCD00A1CFDC /* SeparatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D571F2668CFCD00A1CFDC /* SeparatorFactory.swift */; };
+		A89D57252668D42600A1CFDC /* DataUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57242668D42500A1CFDC /* DataUserError.swift */; };
+		A89D57332668E25500A1CFDC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57322668E25500A1CFDC /* RegistrationView.swift */; };
+		A89D57382668E26600A1CFDC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57372668E26600A1CFDC /* RegistrationViewController.swift */; };
+		A89D57432668F69B00A1CFDC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57422668F69B00A1CFDC /* User.swift */; };
+		A89D57482668F96B00A1CFDC /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57472668F96B00A1CFDC /* BaseCoordinator.swift */; };
+		A89D574D2668FA7200A1CFDC /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D574C2668FA7200A1CFDC /* ApplicationCoordinator.swift */; };
+		A89D57532668FCBC00A1CFDC /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D57522668FCBC00A1CFDC /* AuthCoordinator.swift */; };
+		A89D575B266900B700A1CFDC /* RealmUserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D575A266900B700A1CFDC /* RealmUserServiceProtocol.swift */; };
+		A89D5776266910AF00A1CFDC /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D5775266910AF00A1CFDC /* MapCoordinator.swift */; };
 		A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F74B26611D6B00787C88 /* RealmService.swift */; };
 		A8B3F7512661228D00787C88 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7502661228D00787C88 /* Path.swift */; };
 		A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7552661261C00787C88 /* Coordinate.swift */; };
-		A8DEB249266399AC00BD6295 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */; };
+		A8DEB249266399AC00BD6295 /* RealmMapServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +91,37 @@
 		A843BCF6265D6A1E003A8793 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A843BCFE265D6A3B003A8793 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertProtocol.swift; sourceTree = "<group>"; };
+		A89D56E92668CE9900A1CFDC /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A89D56EE2668CEA100A1CFDC /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A89D56F42668CEC900A1CFDC /* TableScreenViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableScreenViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56F62668CEC900A1CFDC /* NavigationControllerDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56F72668CEC900A1CFDC /* SearchControllerDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchControllerDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56F92668CEC900A1CFDC /* SegmentedControlDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FA2668CEC900A1CFDC /* DataUserViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUserViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FB2668CEC900A1CFDC /* TextViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FC2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FD2668CEC900A1CFDC /* ScrollViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FE2668CEC900A1CFDC /* ResultViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D56FF2668CEC900A1CFDC /* ButtonDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDarkStyle.swift; sourceTree = "<group>"; };
+		A89D57002668CEC900A1CFDC /* LabelDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDarkStyle.swift; sourceTree = "<group>"; };
+		A89D57012668CEC900A1CFDC /* TableViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDarkStyle.swift; sourceTree = "<group>"; };
+		A89D57022668CEC900A1CFDC /* RefreshControlDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControlDarkStyle.swift; sourceTree = "<group>"; };
+		A89D57032668CEC900A1CFDC /* TextFieldDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDarkStyle.swift; sourceTree = "<group>"; };
+		A89D57192668CFB100A1CFDC /* CheckingUsernameAndPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingUsernameAndPassword.swift; sourceTree = "<group>"; };
+		A89D571F2668CFCD00A1CFDC /* SeparatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorFactory.swift; sourceTree = "<group>"; };
+		A89D57242668D42500A1CFDC /* DataUserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUserError.swift; sourceTree = "<group>"; };
+		A89D57322668E25500A1CFDC /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		A89D57372668E26600A1CFDC /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		A89D57422668F69B00A1CFDC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A89D57472668F96B00A1CFDC /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		A89D574C2668FA7200A1CFDC /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		A89D57522668FCBC00A1CFDC /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		A89D575A266900B700A1CFDC /* RealmUserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserServiceProtocol.swift; sourceTree = "<group>"; };
+		A89D5775266910AF00A1CFDC /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		A8B3F74B26611D6B00787C88 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		A8B3F7502661228D00787C88 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		A8B3F7552661261C00787C88 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
-		A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
+		A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapServiceProtocol.swift; sourceTree = "<group>"; };
 		BBB027CFA30EE12CBDC634D3 /* Pods-RouteTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker/Pods-RouteTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BE0065C1786175E75F5E5E7A /* Pods-RouteTracker-RouteTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBF8F573A9A1F41687FD3B82 /* Pods-RouteTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-RouteTrackerTests/Pods-RouteTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +237,7 @@
 			children = (
 				A82A7608265D13AA0038016A /* AppDelegate.swift */,
 				A82A760A265D13AA0038016A /* SceneDelegate.swift */,
+				A89D574C2668FA7200A1CFDC /* ApplicationCoordinator.swift */,
 				A82A765A265D38DC0038016A /* Assembly */,
 				A82A7658265D38B70038016A /* BusinessLogic */,
 				A82A7659265D38CE0038016A /* Entity */,
@@ -195,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				A8B3F74A26611D4300787C88 /* Realm */,
+				A89D571E2668CFCD00A1CFDC /* SeparatorFabrica */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -202,8 +258,8 @@
 		A82A7659265D38CE0038016A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				A8B3F7502661228D00787C88 /* Path.swift */,
-				A8B3F7552661261C00787C88 /* Coordinate.swift */,
+				A89D57152668CECD00A1CFDC /* Realm */,
+				A89D56F32668CEC900A1CFDC /* CutomUI */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -218,7 +274,11 @@
 		A82A765B265D38FF0038016A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				A89D57192668CFB100A1CFDC /* CheckingUsernameAndPassword.swift */,
+				A89D57242668D42500A1CFDC /* DataUserError.swift */,
 				A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */,
+				A89D56C62668C89D00A1CFDC /* Auth */,
+				A89D56C72668C8A000A1CFDC /* Registration */,
 				A843BCF3265D69C7003A8793 /* Map */,
 			);
 			path = Flows;
@@ -227,6 +287,7 @@
 		A82A765C265D392A0038016A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A8866655266950FC00A5BE24 /* BaseCoordinator */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -253,6 +314,7 @@
 			children = (
 				A843BCF4265D69D5003A8793 /* View */,
 				A843BCF5265D69DC003A8793 /* ViewController */,
+				A89D57742669109600A1CFDC /* Coordinator */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -273,10 +335,141 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		A8866655266950FC00A5BE24 /* BaseCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A89D57472668F96B00A1CFDC /* BaseCoordinator.swift */,
+			);
+			path = BaseCoordinator;
+			sourceTree = "<group>";
+		};
+		A89D56C62668C89D00A1CFDC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56CA2668C8E700A1CFDC /* VIew */,
+				A89D56CB2668C8EB00A1CFDC /* Controller */,
+				A89D57512668FCA000A1CFDC /* Coordinator */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A89D56C72668C8A000A1CFDC /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56C82668C8D900A1CFDC /* View */,
+				A89D56C92668C8DF00A1CFDC /* Controller */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		A89D56C82668C8D900A1CFDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A89D57322668E25500A1CFDC /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A89D56C92668C8DF00A1CFDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A89D57372668E26600A1CFDC /* RegistrationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A89D56CA2668C8E700A1CFDC /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56E92668CE9900A1CFDC /* AuthView.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		A89D56CB2668C8EB00A1CFDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56EE2668CEA100A1CFDC /* AuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A89D56F32668CEC900A1CFDC /* CutomUI */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56F42668CEC900A1CFDC /* TableScreenViewDarkStyle.swift */,
+				A89D56F52668CEC900A1CFDC /* Controller */,
+				A89D56F82668CEC900A1CFDC /* VIew */,
+			);
+			path = CutomUI;
+			sourceTree = "<group>";
+		};
+		A89D56F52668CEC900A1CFDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56F62668CEC900A1CFDC /* NavigationControllerDarkStyle.swift */,
+				A89D56F72668CEC900A1CFDC /* SearchControllerDarkStyle.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A89D56F82668CEC900A1CFDC /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				A89D56F92668CEC900A1CFDC /* SegmentedControlDarkStyle.swift */,
+				A89D56FA2668CEC900A1CFDC /* DataUserViewDarkStyle.swift */,
+				A89D56FB2668CEC900A1CFDC /* TextViewDarkStyle.swift */,
+				A89D56FC2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift */,
+				A89D56FD2668CEC900A1CFDC /* ScrollViewDarkStyle.swift */,
+				A89D56FE2668CEC900A1CFDC /* ResultViewDarkStyle.swift */,
+				A89D56FF2668CEC900A1CFDC /* ButtonDarkStyle.swift */,
+				A89D57002668CEC900A1CFDC /* LabelDarkStyle.swift */,
+				A89D57012668CEC900A1CFDC /* TableViewDarkStyle.swift */,
+				A89D57022668CEC900A1CFDC /* RefreshControlDarkStyle.swift */,
+				A89D57032668CEC900A1CFDC /* TextFieldDarkStyle.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		A89D57152668CECD00A1CFDC /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A89D57422668F69B00A1CFDC /* User.swift */,
+				A8B3F7502661228D00787C88 /* Path.swift */,
+				A8B3F7552661261C00787C88 /* Coordinate.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		A89D571E2668CFCD00A1CFDC /* SeparatorFabrica */ = {
+			isa = PBXGroup;
+			children = (
+				A89D571F2668CFCD00A1CFDC /* SeparatorFactory.swift */,
+			);
+			path = SeparatorFabrica;
+			sourceTree = "<group>";
+		};
+		A89D57512668FCA000A1CFDC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A89D57522668FCBC00A1CFDC /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A89D57742669109600A1CFDC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A89D5775266910AF00A1CFDC /* MapCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		A8B3F74A26611D4300787C88 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				A8DEB248266399AC00BD6295 /* RealmServiceProtocol.swift */,
+				A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */,
+				A89D575A266900B700A1CFDC /* RealmUserServiceProtocol.swift */,
 				A8B3F74B26611D6B00787C88 /* RealmService.swift */,
 			);
 			path = Realm;
@@ -555,16 +748,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89D57042668CEC900A1CFDC /* TableScreenViewDarkStyle.swift in Sources */,
 				A82A7613265D13AA0038016A /* RouteTracker.xcdatamodeld in Sources */,
 				A843BCFF265D6A3B003A8793 /* MapViewController.swift in Sources */,
+				A89D56EA2668CE9900A1CFDC /* AuthView.swift in Sources */,
+				A89D57432668F69B00A1CFDC /* User.swift in Sources */,
 				A8B3F7512661228D00787C88 /* Path.swift in Sources */,
+				A89D570C2668CEC900A1CFDC /* ResultViewDarkStyle.swift in Sources */,
+				A89D57082668CEC900A1CFDC /* DataUserViewDarkStyle.swift in Sources */,
+				A89D57072668CEC900A1CFDC /* SegmentedControlDarkStyle.swift in Sources */,
+				A89D57382668E26600A1CFDC /* RegistrationViewController.swift in Sources */,
+				A89D570A2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift in Sources */,
+				A89D57332668E25500A1CFDC /* RegistrationView.swift in Sources */,
 				A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */,
+				A89D570E2668CEC900A1CFDC /* LabelDarkStyle.swift in Sources */,
+				A89D57092668CEC900A1CFDC /* TextViewDarkStyle.swift in Sources */,
 				A843BCF7265D6A1E003A8793 /* MapView.swift in Sources */,
 				A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */,
+				A89D574D2668FA7200A1CFDC /* ApplicationCoordinator.swift in Sources */,
+				A89D57202668CFCD00A1CFDC /* SeparatorFactory.swift in Sources */,
+				A89D570D2668CEC900A1CFDC /* ButtonDarkStyle.swift in Sources */,
 				A82A7609265D13AA0038016A /* AppDelegate.swift in Sources */,
+				A89D57252668D42600A1CFDC /* DataUserError.swift in Sources */,
+				A89D56EF2668CEA100A1CFDC /* AuthViewController.swift in Sources */,
+				A89D57112668CEC900A1CFDC /* TextFieldDarkStyle.swift in Sources */,
 				A82A760B265D13AA0038016A /* SceneDelegate.swift in Sources */,
+				A89D57532668FCBC00A1CFDC /* AuthCoordinator.swift in Sources */,
+				A89D57052668CEC900A1CFDC /* NavigationControllerDarkStyle.swift in Sources */,
+				A89D5776266910AF00A1CFDC /* MapCoordinator.swift in Sources */,
+				A89D57062668CEC900A1CFDC /* SearchControllerDarkStyle.swift in Sources */,
+				A89D57102668CEC900A1CFDC /* RefreshControlDarkStyle.swift in Sources */,
+				A89D571A2668CFB100A1CFDC /* CheckingUsernameAndPassword.swift in Sources */,
 				A843BD04265D7C5B003A8793 /* ShowAlertProtocol.swift in Sources */,
-				A8DEB249266399AC00BD6295 /* RealmServiceProtocol.swift in Sources */,
+				A8DEB249266399AC00BD6295 /* RealmMapServiceProtocol.swift in Sources */,
+				A89D575B266900B700A1CFDC /* RealmUserServiceProtocol.swift in Sources */,
+				A89D570B2668CEC900A1CFDC /* ScrollViewDarkStyle.swift in Sources */,
+				A89D57482668F96B00A1CFDC /* BaseCoordinator.swift in Sources */,
+				A89D570F2668CEC900A1CFDC /* TableViewDarkStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
