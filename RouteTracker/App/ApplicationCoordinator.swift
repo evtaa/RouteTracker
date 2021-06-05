@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 final class ApplicationCoordinator: BaseCoordinator {
     // MARK: Properties
     var realmMapService: RealmMapServiceProtocol
@@ -60,5 +61,15 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
         addDependency(coordinator)
         coordinator.start()
+    }
+    
+    func showCurtain() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.secondWindow?.makeKeyAndVisible()
+    }
+    
+    func removeCurtain() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }

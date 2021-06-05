@@ -10,26 +10,27 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var secondWindow: UIWindow?
     var coordinator: ApplicationCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
         let realmService = RealmService()
         let realmMapService: RealmMapServiceProtocol = realmService
         let realmUserService: RealmUserServiceProtocol = realmService
         let separatorFactoryAbstract: SeparatorFactoryAbstract = SeparatorFactory()
 
-        //let mapViewController = MapViewController(realmMapService: realmService)
-       // let navigationController = UINavigationController(rootViewController: mapViewController)
-        //window.rootViewController = navigationController
-        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
         self.window = window
+    
+        let secondWindow = UIWindow(windowScene: windowScene)
+        let controller = CurtainViewController()
+        secondWindow.rootViewController = controller
+        self.secondWindow = secondWindow
         
         coordinator = ApplicationCoordinator(realmMapService: realmMapService, realmUserService: realmUserService, separatorFactoryAbstract: separatorFactoryAbstract)
         coordinator?.start()
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,11 +41,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        coordinator?.removeCurtain()
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
+        coordinator?.showCurtain()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
