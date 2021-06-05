@@ -22,6 +22,7 @@
 		A843BD04265D7C5B003A8793 /* ShowAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */; };
 		A8492E3A266BF680005FF0B4 /* CurtainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8492E39266BF680005FF0B4 /* CurtainView.swift */; };
 		A8492E42266BF6AF005FF0B4 /* CurtainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8492E41266BF6AF005FF0B4 /* CurtainViewController.swift */; };
+		A84D3402266C23A800584807 /* CurtainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D3401266C23A800584807 /* CurtainCoordinator.swift */; };
 		A89D56EA2668CE9900A1CFDC /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56E92668CE9900A1CFDC /* AuthView.swift */; };
 		A89D56EF2668CEA100A1CFDC /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56EE2668CEA100A1CFDC /* AuthViewController.swift */; };
 		A89D57042668CEC900A1CFDC /* TableScreenViewDarkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D56F42668CEC900A1CFDC /* TableScreenViewDarkStyle.swift */; };
@@ -95,6 +96,7 @@
 		A843BD03265D7C5B003A8793 /* ShowAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertProtocol.swift; sourceTree = "<group>"; };
 		A8492E39266BF680005FF0B4 /* CurtainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainView.swift; sourceTree = "<group>"; };
 		A8492E41266BF6AF005FF0B4 /* CurtainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainViewController.swift; sourceTree = "<group>"; };
+		A84D3401266C23A800584807 /* CurtainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainCoordinator.swift; sourceTree = "<group>"; };
 		A89D56E92668CE9900A1CFDC /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		A89D56EE2668CEA100A1CFDC /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A89D56F42668CEC900A1CFDC /* TableScreenViewDarkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableScreenViewDarkStyle.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				A8492E37266BF65B005FF0B4 /* View */,
 				A8492E38266BF660005FF0B4 /* Controller */,
+				A84D3400266C238D00584807 /* Coordinator */,
 			);
 			path = Curtain;
 			sourceTree = "<group>";
@@ -363,6 +366,14 @@
 				A8492E41266BF6AF005FF0B4 /* CurtainViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A84D3400266C238D00584807 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A84D3401266C23A800584807 /* CurtainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		A8866655266950FC00A5BE24 /* BaseCoordinator */ = {
@@ -791,6 +802,7 @@
 				A89D570A2668CEC900A1CFDC /* ActivityIndicatorDarkStyle.swift in Sources */,
 				A89D57332668E25500A1CFDC /* RegistrationView.swift in Sources */,
 				A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */,
+				A84D3402266C23A800584807 /* CurtainCoordinator.swift in Sources */,
 				A89D570E2668CEC900A1CFDC /* LabelDarkStyle.swift in Sources */,
 				A89D57092668CEC900A1CFDC /* TextViewDarkStyle.swift in Sources */,
 				A843BCF7265D6A1E003A8793 /* MapView.swift in Sources */,

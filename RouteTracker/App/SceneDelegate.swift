@@ -18,19 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let realmMapService: RealmMapServiceProtocol = realmService
         let realmUserService: RealmUserServiceProtocol = realmService
         let separatorFactoryAbstract: SeparatorFactoryAbstract = SeparatorFactory()
-
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
         self.window = window
-    
+        
         let secondWindow = UIWindow(windowScene: windowScene)
-        let controller = CurtainViewController()
-        secondWindow.rootViewController = controller
         self.secondWindow = secondWindow
         
         coordinator = ApplicationCoordinator(realmMapService: realmMapService, realmUserService: realmUserService, separatorFactoryAbstract: separatorFactoryAbstract)
         coordinator?.start()
+        coordinator?.secondStart()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -41,13 +40,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        coordinator?.removeCurtain()
+        coordinator?.showWindow()
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        coordinator?.showCurtain()
+        coordinator?.showSecondWindow()
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }

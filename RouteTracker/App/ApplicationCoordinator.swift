@@ -63,12 +63,21 @@ final class ApplicationCoordinator: BaseCoordinator {
         coordinator.start()
     }
     
-    func showCurtain() {
+    func secondStart() {
+            toCurtain()
+    }
+    private func toCurtain() {
+        let coordinator = CurtainCoordinator()
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    func showSecondWindow() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.secondWindow?.makeKeyAndVisible()
     }
     
-    func removeCurtain() {
+    func showWindow() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.window?.makeKeyAndVisible()
     }
