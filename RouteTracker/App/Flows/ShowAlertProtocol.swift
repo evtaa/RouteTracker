@@ -42,4 +42,7 @@ extension ShowAlert {
     func showError (forViewController controller: UIViewController, withMessage message: String) {
         self.showAlert(forViewController: controller, withTitleOfAlert: "Error", andMessage: message, withTitleOfAction: "OK", handlerOfAction: nil)
     }
+    func showError (forViewController controller: UIViewController, withError error: Error) {
+        self.showAlert(forViewController: controller, withTitleOfAlert: "Error", andMessage: "\(error)", withTitleOfAction: "OK", handlerOfAction: nil)
+    }
 }
