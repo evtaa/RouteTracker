@@ -18,4 +18,6 @@ target 'RouteTracker' do
 
   pod 'GoogleMaps', '5.0.0'
   pod 'RealmSwift', '10.1.4'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
 end

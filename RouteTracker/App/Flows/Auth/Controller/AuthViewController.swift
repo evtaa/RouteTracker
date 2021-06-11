@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AuthViewController: UIViewController, ShowAlert, CheckingUsernameAndPassword {
     // MARK: Properties
@@ -50,6 +52,7 @@ class AuthViewController: UIViewController, ShowAlert, CheckingUsernameAndPasswo
     private func configure () {
         configureActions()
         configureKeyboard ()
+        configureLoginBindings()
     }
     
     private func configureActions () {
@@ -62,6 +65,31 @@ class AuthViewController: UIViewController, ShowAlert, CheckingUsernameAndPasswo
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func configureLoginBindings() {
+        Observable.combineLatest (authView.usernameTextField.rx.text,
+                                  authView.passwordTextField.rx.text)
+                .map { (login, password) -> (Bool, Bool, Bool, Bool) in
+                    return ((login ?? "").count > 0, (password ?? "").count >= 6, (login ?? "").isEmpty, (password ?? "").isEmpty)
+                }
+            .bind { [weak self] inputLoginFilled, inputPasswordFilled, isEmptyLogin, isEmptyPassword in
+                guard let self = self else {return}
+                let inputFilled = inputLoginFilled && inputPasswordFilled
+                if (inputFilled) {
+                    self.authView.loginButton.setTitleColor(.white, for: .normal)
+                } else {
+                    self.authView.loginButton.setTitleColor(.darkGray, for: .normal)
+                }
+                self.authView.loginButton.isEnabled = inputFilled
+                if (!inputLoginFilled && !isEmptyLogin) {
+                    self.showInfoData(message: DataUserError.noCorrectUsername.rawValue)
+                } else if (!inputPasswordFilled && !isEmptyPassword) {
+                    self.showInfoData(message: DataUserError.noCorrectPassword.rawValue)
+                } else {
+                    self.showInfoData(message: "")
+                }
+            }
+        }
+
     // MARK: Keyboard actions
     @objc func keyboardWasShown(notification: Notification) {
         guard let userInfo = notification.userInfo as NSDictionary?,

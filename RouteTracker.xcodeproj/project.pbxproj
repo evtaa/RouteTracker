@@ -53,6 +53,7 @@
 		A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F74B26611D6B00787C88 /* RealmService.swift */; };
 		A8B3F7512661228D00787C88 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7502661228D00787C88 /* Path.swift */; };
 		A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7552661261C00787C88 /* Coordinate.swift */; };
+		A8D9132D2672404600722174 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9132C2672404600722174 /* LocationManager.swift */; };
 		A8DEB249266399AC00BD6295 /* RealmMapServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		A8B3F74B26611D6B00787C88 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		A8B3F7502661228D00787C88 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		A8B3F7552661261C00787C88 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		A8D9132C2672404600722174 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapServiceProtocol.swift; sourceTree = "<group>"; };
 		BBB027CFA30EE12CBDC634D3 /* Pods-RouteTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker/Pods-RouteTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BE0065C1786175E75F5E5E7A /* Pods-RouteTracker-RouteTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker-RouteTrackerUITests/Pods-RouteTracker-RouteTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		A82A7658265D38B70038016A /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				A8D9132B2672402800722174 /* LocationManager */,
 				A8B3F74A26611D4300787C88 /* Realm */,
 				A89D571E2668CFCD00A1CFDC /* SeparatorFabrica */,
 			);
@@ -514,6 +517,14 @@
 				A8B3F74B26611D6B00787C88 /* RealmService.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		A8D9132B2672402800722174 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				A8D9132C2672404600722174 /* LocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +825,7 @@
 				A82A7609265D13AA0038016A /* AppDelegate.swift in Sources */,
 				A89D57252668D42600A1CFDC /* DataUserError.swift in Sources */,
 				A89D56EF2668CEA100A1CFDC /* AuthViewController.swift in Sources */,
+				A8D9132D2672404600722174 /* LocationManager.swift in Sources */,
 				A89D57112668CEC900A1CFDC /* TextFieldDarkStyle.swift in Sources */,
 				A82A760B265D13AA0038016A /* SceneDelegate.swift in Sources */,
 				A89D57532668FCBC00A1CFDC /* AuthCoordinator.swift in Sources */,

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RegistrationViewController: UIViewController, ShowAlert, CheckingUsernameAndPassword {
     // MARK: Properties
@@ -47,6 +49,7 @@ class RegistrationViewController: UIViewController, ShowAlert, CheckingUsernameA
     // MARK: Configure
     private func configure() {
         configureNavigationBar()
+        configureRegistrationBindings()
     }
     
     private func configureNavigationBar() {
@@ -54,6 +57,18 @@ class RegistrationViewController: UIViewController, ShowAlert, CheckingUsernameA
         let barButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonTouchUpInside))
         navigationItem.setRightBarButton(barButtonItem, animated: true)
     }
+    
+    private func configureRegistrationBindings() {
+        Observable.combineLatest (registrationView.dataUserView.usernameTextField.rx.text,
+                                  registrationView.dataUserView.passwordTextField.rx.text)
+                .map { (login, password) in
+                    return (login ?? "").count > 0 && (password ?? "").count >= 6
+                }
+            .bind { [weak self] inputFilled in
+                guard let self = self else {return}
+                self.navigationItem.rightBarButtonItem?.isEnabled = inputFilled
+            }
+        }
     
     // MARK: Private functions
     private func  showSuccessRegistration (handlerOfAction: ((UIAlertAction) -> Void)?) {
