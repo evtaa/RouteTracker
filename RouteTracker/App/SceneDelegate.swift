@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator: ApplicationCoordinator?
     var localNotification: AbstractLocalNotification = LocalNotification()
     private struct Constant {
+        static let thirtyMinutes = 60*30
         static let identifierUserNotification = "identifierUserNotification"
     }
     
@@ -56,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator?.showSecondWindow()
         localNotification.setNotification {
             let content = self.localNotification.makeNotificationContent(title: "Привет", subtitle: "Не забывай о нас", body: "Воспользуйся трекером и участвуй в конкурсе за бомбический приз!")
-            let trigger = self.localNotification.makeNotificationTrigger(timeInterval: 60*30, repeats: false)
+            let trigger = self.localNotification.makeNotificationTrigger(timeInterval: Constant.thirtyMinutes, repeats: false)
             self.localNotification.sendNotificationRequest(identifier: Constant.identifierUserNotification,
                                                       content: content,
                                                       trigger: trigger)
