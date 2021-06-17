@@ -53,6 +53,8 @@
 		A8B3F74C26611D6B00787C88 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F74B26611D6B00787C88 /* RealmService.swift */; };
 		A8B3F7512661228D00787C88 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7502661228D00787C88 /* Path.swift */; };
 		A8B3F7562661261C00787C88 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3F7552661261C00787C88 /* Coordinate.swift */; };
+		A8BC0635267A23EC00C7D1A8 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0634267A23EC00C7D1A8 /* LocalNotification.swift */; };
+		A8BC063D267A2B7C00C7D1A8 /* AbstractLocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC063C267A2B7C00C7D1A8 /* AbstractLocalNotification.swift */; };
 		A8D9132D2672404600722174 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9132C2672404600722174 /* LocationManager.swift */; };
 		A8DEB249266399AC00BD6295 /* RealmMapServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,8 @@
 		A8B3F74B26611D6B00787C88 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		A8B3F7502661228D00787C88 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		A8B3F7552661261C00787C88 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		A8BC0634267A23EC00C7D1A8 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		A8BC063C267A2B7C00C7D1A8 /* AbstractLocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLocalNotification.swift; sourceTree = "<group>"; };
 		A8D9132C2672404600722174 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A8DEB248266399AC00BD6295 /* RealmMapServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapServiceProtocol.swift; sourceTree = "<group>"; };
 		BBB027CFA30EE12CBDC634D3 /* Pods-RouteTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteTracker.release.xcconfig"; path = "Target Support Files/Pods-RouteTracker/Pods-RouteTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		A82A7658265D38B70038016A /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				A8BC0633267A238000C7D1A8 /* LocalNotification */,
 				A8D9132B2672402800722174 /* LocationManager */,
 				A8B3F74A26611D4300787C88 /* Realm */,
 				A89D571E2668CFCD00A1CFDC /* SeparatorFabrica */,
@@ -517,6 +522,15 @@
 				A8B3F74B26611D6B00787C88 /* RealmService.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		A8BC0633267A238000C7D1A8 /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				A8BC0634267A23EC00C7D1A8 /* LocalNotification.swift */,
+				A8BC063C267A2B7C00C7D1A8 /* AbstractLocalNotification.swift */,
+			);
+			path = LocalNotification;
 			sourceTree = "<group>";
 		};
 		A8D9132B2672402800722174 /* LocationManager */ = {
@@ -826,12 +840,14 @@
 				A89D57252668D42600A1CFDC /* DataUserError.swift in Sources */,
 				A89D56EF2668CEA100A1CFDC /* AuthViewController.swift in Sources */,
 				A8D9132D2672404600722174 /* LocationManager.swift in Sources */,
+				A8BC063D267A2B7C00C7D1A8 /* AbstractLocalNotification.swift in Sources */,
 				A89D57112668CEC900A1CFDC /* TextFieldDarkStyle.swift in Sources */,
 				A82A760B265D13AA0038016A /* SceneDelegate.swift in Sources */,
 				A89D57532668FCBC00A1CFDC /* AuthCoordinator.swift in Sources */,
 				A89D57052668CEC900A1CFDC /* NavigationControllerDarkStyle.swift in Sources */,
 				A8492E3A266BF680005FF0B4 /* CurtainView.swift in Sources */,
 				A89D5776266910AF00A1CFDC /* MapCoordinator.swift in Sources */,
+				A8BC0635267A23EC00C7D1A8 /* LocalNotification.swift in Sources */,
 				A89D57062668CEC900A1CFDC /* SearchControllerDarkStyle.swift in Sources */,
 				A89D57102668CEC900A1CFDC /* RefreshControlDarkStyle.swift in Sources */,
 				A89D571A2668CFB100A1CFDC /* CheckingUsernameAndPassword.swift in Sources */,
@@ -924,6 +940,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -996,6 +1013,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1016,6 +1034,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "-23456.RouteTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1036,6 +1055,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "-23456.RouteTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

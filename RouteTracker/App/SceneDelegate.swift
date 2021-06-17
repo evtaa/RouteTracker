@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var secondWindow: UIWindow?
     var coordinator: ApplicationCoordinator?
-
+    var localNotification: AbstractLocalNotification = LocalNotification()
+    private struct Constant {
+        static let identifierUserNotification = "identifierUserNotification"
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let realmService = RealmService()
         let realmMapService: RealmMapServiceProtocol = realmService
@@ -28,6 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.secondWindow = secondWindow
         
         coordinator = ApplicationCoordinator(realmMapService: realmMapService, realmUserService: realmUserService, separatorFactoryAbstract: separatorFactoryAbstract)
+        localNotification.requestAuthorization()
         coordinator?.start()
         coordinator?.secondStart()
     }
@@ -41,12 +47,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         coordinator?.showWindow()
+        localNotification.removeNotification(identifiers: [Constant.identifierUserNotification])
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         coordinator?.showSecondWindow()
+        localNotification.setNotification {
+            let content = self.localNotification.makeNotificationContent(title: "Привет", subtitle: "Не забывай о нас", body: "Воспользуйся трекером и участвуй в конкурсе за бомбический приз!")
+            let trigger = self.localNotification.makeNotificationTrigger(timeInterval: 60*30, repeats: false)
+            self.localNotification.sendNotificationRequest(identifier: Constant.identifierUserNotification,
+                                                      content: content,
+                                                      trigger: trigger)
+        }
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
@@ -64,7 +78,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
 
