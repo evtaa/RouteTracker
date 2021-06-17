@@ -8,15 +8,18 @@
 import UIKit
 import CoreLocation
 import GoogleMaps
+import RxSwift
+import RxCocoa
 
 class MapViewController: UIViewController, ShowAlert {
     // MARK: Properties
     var onLogout: (() -> Void)?
     
     private var realmMapService: RealmMapServiceProtocol
+    private let locationManager = LocationManager.instance
     private var user: User
     
-    private var locationManager: CLLocationManager?
+    private let disposeBag = DisposeBag()
     private var markers = [GMSMarker]()
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
@@ -73,14 +76,27 @@ class MapViewController: UIViewController, ShowAlert {
         navigationItem.setRightBarButton(barButtonItem, animated: true)
     }
     private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        guard let locationManager = locationManager else {return}
-        locationManager.delegate = self
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.startMonitoringSignificantLocationChanges()
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.requestAlwaysAuthorization()
+        let subscription = locationManager.location.subscribe { [weak self] event in
+            guard let location = event.element,
+                  let self = self else { return }
+            if ((self.isTracker) == true) {
+                guard let coordinate = location?.coordinate,
+                      let routePath = self.routePath,
+                      let route = self.route else {return}
+                self.addCoordinateToRoute(coordinate: coordinate, routePath: routePath, route: route)
+                debugPrint(coordinate)
+                self.removeMarkers(markers: self.markers)
+                self.addMarker(mapView: self.mapView.mapView, coordinate: coordinate)
+                self.viewCamera(mapView: self.mapView.mapView, coordinate: coordinate, zoom: 17)
+            }
+        }
+        subscription.disposed(by: disposeBag)
+        
+        locationManager.error.bind { [weak self] error in
+            guard let error = error,
+                  let self = self else { return }
+            self.showError(forViewController: self, withError: error)
+        }.disposed(by: disposeBag)
     }
     private func configureStartTrackButton() {
         mapView.startTrackButton.addTarget(self, action: #selector(startTrackButtonTouchUpInside), for: .touchUpInside)
@@ -150,7 +166,7 @@ class MapViewController: UIViewController, ShowAlert {
     private func updateLocation() {
         route?.map = nil
         configureRoute()
-        locationManager?.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
     
     // MARK: Actions
@@ -165,8 +181,7 @@ class MapViewController: UIViewController, ShowAlert {
         updateLocation()
     }
     @objc private func stopTrackButtonTouchUpInside() {
-        guard let routePath = routePath,
-              let locationManager = locationManager else {return}
+        guard let routePath = routePath else {return}
         locationManager.stopUpdatingLocation()
         isTracker = false
         realmMapService.deletePath(username: user.username)
@@ -192,24 +207,5 @@ class MapViewController: UIViewController, ShowAlert {
             setRouteFromLastPathRealm(routePath: routePath, route: route)
             viewCameraFromRoute()
         }
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if (isTracker) {
-            guard let coordinate = locations.last?.coordinate,
-                  let routePath = routePath,
-                  let route = route else {return}
-            addCoordinateToRoute(coordinate: coordinate, routePath: routePath, route: route)
-            debugPrint(coordinate)
-            removeMarkers(markers: markers)
-            addMarker(mapView: mapView.mapView, coordinate: coordinate)
-            viewCamera(mapView: mapView.mapView, coordinate: coordinate, zoom: 17)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        showError(forViewController: self, withMessage: "\(error)")
     }
 }
