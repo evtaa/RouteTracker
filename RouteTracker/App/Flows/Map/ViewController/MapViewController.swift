@@ -11,7 +11,7 @@ import GoogleMaps
 import RxSwift
 import RxCocoa
 
-class MapViewController: UIViewController, ShowAlert {
+class MapViewController: UIViewController, ShowAlert, UINavigationControllerDelegate {
     // MARK: Properties
     var onLogout: (() -> Void)?
     
@@ -72,8 +72,10 @@ class MapViewController: UIViewController, ShowAlert {
     }
     private func configureNavigationBar() {
         title = "Tracker"
-        let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTouchUpInside))
-        navigationItem.setRightBarButton(barButtonItem, animated: true)
+        let rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTouchUpInside))
+        navigationItem.setRightBarButton(rightBarButtonItem, animated: true)
+        let leftBarButtonItem = UIBarButtonItem(title: "Avatar", style: .plain, target: self, action: #selector(avatarButtonTouchUpInside))
+        navigationItem.setLeftBarButton(leftBarButtonItem, animated: true)
     }
     private func configureLocationManager() {
         let subscription = locationManager.location.subscribe { [weak self] event in
@@ -123,6 +125,8 @@ class MapViewController: UIViewController, ShowAlert {
     }
     private func addMarker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D){
         let marker = GMSMarker(position: coordinate)
+        let image = getSavedImage(named: "avatarImage")
+        marker.icon = image
         marker.map = mapView
         markers.append(marker)
     }
@@ -176,6 +180,15 @@ class MapViewController: UIViewController, ShowAlert {
         onLogout?()
     }
     
+    @objc private func avatarButtonTouchUpInside() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else{
+            return }
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     @objc private func startTrackButtonTouchUpInside() {
         isTracker = true
         updateLocation()
@@ -206,6 +219,79 @@ class MapViewController: UIViewController, ShowAlert {
             self.removeMarkers(markers: self.markers)
             setRouteFromLastPathRealm(routePath: routePath, route: route)
             viewCameraFromRoute()
+        }
+    }
+    
+    // MARK: - Avatar
+    func saveImage(image: UIImage) -> Bool {
+        let newImage = resizeImage(image: image, targetSize: CGSize(width: 100, height: 100))
+        guard let data = newImage.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent("avatarImage.png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    func getSavedImage(named: String) -> UIImage? {
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        return nil
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if let newImage = newImage {
+            return newImage
+        }
+        return UIImage()
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension MapViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = extractImage(from: info),
+           saveImage(image: image) == true
+        {
+            print(image)
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            return image
+        } else {
+            return nil
         }
     }
 }
