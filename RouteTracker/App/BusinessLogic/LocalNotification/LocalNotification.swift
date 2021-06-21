@@ -60,8 +60,6 @@ class LocalNotification: AbstractLocalNotification {
         content.subtitle = subtitle
         content.body = body
         return content
-        
-        
     }
     
     func makeNotificationTrigger(timeInterval: Int, repeats: Bool) -> UNNotificationTrigger {
